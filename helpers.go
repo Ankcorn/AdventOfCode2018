@@ -6,8 +6,8 @@ import (
 	"strings"
 )
 
-// FileToNums takes a text file and returns a list of numbers
-func FileToNums(path string) ([]int, error) {
+// FileToInts takes a text file and returns a list of numbers
+func FileToInts(path string) ([]int, error) {
 	b, err := ioutil.ReadFile(path) // just pass the file name
 	if err != nil {
 		return nil, err
@@ -31,4 +31,18 @@ func FileToNums(path string) ([]int, error) {
 	}
 
 	return ints, nil
+}
+
+// FileToStrArr takes a text file and returns a String Array
+func FileToStrArr(path string) ([]string, error) {
+	b, err := ioutil.ReadFile(path) // just pass the file name
+	if err != nil {
+		return nil, err
+	}
+	// convert content to a 'string'
+	str := string(b)
+	// parses string to list of strings
+	list := strings.Split(str, "\n")
+
+	return list, nil
 }
