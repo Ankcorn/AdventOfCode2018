@@ -20,4 +20,5 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("The answer to day 2 part 1 is %d\n", day2.ComputeChecksum(day2data))
+	fmt.Printf("The answer to day 2 part 2 is %d\n", day2.FindPrototype(day2data))
 }

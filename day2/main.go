@@ -1,6 +1,8 @@
 package day2
 
-import "strings"
+import (
+	"strings"
+)
 
 // ComputeChecksum takes a list of strings and returns the compute hash
 func ComputeChecksum(list []string) int {
@@ -57,4 +59,33 @@ func ParseThing(input [][]string) (bool, bool) {
 		}
 	}
 	return a, b
+}
+
+// FindPrototype finds the comman values of the prototype
+func FindPrototype(input []string) string {
+	newlist := []string{}
+	for _, n := range input {
+		for _, u := range input {
+			if n == u {
+				newlist = append(newlist, n)
+			}
+			firstString := strings.Split(n, "")
+			secondString := strings.Split(u, "")
+			sharedString := ""
+			for i, a := range firstString {
+				if a == secondString[i] {
+					sharedString += a
+				}
+			}
+			newlist = append(newlist, sharedString)
+		}
+	}
+	finalString := ""
+	for _, item := range newlist {
+		if len(item) == len(input[0])-1 {
+			finalString = item
+			break
+		}
+	}
+	return finalString
 }

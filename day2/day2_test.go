@@ -80,3 +80,21 @@ func TestParseThingy(t *testing.T) {
 		)
 	}
 }
+
+func TestPart2(t *testing.T) {
+	input := []string{
+		"abcde",
+		"fghij",
+		"klmno",
+		"pqrst",
+		"fguij",
+		"axcye",
+		"wvxyz",
+	}
+	expected := "fgij"
+	actual := FindPrototype(input)
+
+	if expected != actual {
+		t.Errorf("Expected %s to equal %s!", expected, actual)
+	}
+}
